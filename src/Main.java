@@ -31,7 +31,7 @@ public class Main {
         try (Scanner scanner = new Scanner(System.in)) {
             label:
             while (true) {
-                System.out.println("1. Добавить задачу\n2. Удалить задачу\n3. Получить задачу на указанный день\n0. Выход");
+                System.out.println("1. Добавить задачу\n2. Удалить задачу\n3. Получить задачу на указанный день\n4. Редактировать наименование задачи\n5. Редактировать описание задачи\n0. Выход");
                 System.out.print("Выберите пункт меню: ");
                 if (scanner.hasNextInt()) {
                     int menu = scanner.nextInt();
