@@ -65,8 +65,6 @@ public class Main {
                                 System.out.println();
                             }
                             break;
-                        case 4:
-                            System.out.print("Выберите id названия для удаления: ");
                         case 0:
                             break label;
                     }
