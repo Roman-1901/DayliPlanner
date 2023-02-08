@@ -20,12 +20,12 @@ public class Main {
         Task test6 = new YearlyTask("Описание-5", Type.PERSONAL, "Тестовая задача - 5", "08.02.2023 08:40");
 
 
-        Task.addTask(test1);
-        Task.addTask(test2);
-        Task.addTask(test3);
-        Task.addTask(test4);
-        Task.addTask(test5);
-        Task.addTask(test6);
+        TaskService.addTask(test1);
+        TaskService.addTask(test2);
+        TaskService.addTask(test3);
+        TaskService.addTask(test4);
+        TaskService.addTask(test5);
+        TaskService.addTask(test6);
 //-добавлены тестовые задачи, чтобы каждый раз не вводить через консоль
 
         try (Scanner scanner = new Scanner(System.in)) {
@@ -98,23 +98,23 @@ public class Main {
                 switch (replayTask) {
                     case 1:
                         typeTask = typeTask(scanner);
-                        Task.addTask(new OneTimeTask(taskName, typeTask, taskDescription, taskDate));
+                        TaskService.addTask(new OneTimeTask(taskName, typeTask, taskDescription, taskDate));
                         break label;
                     case 2:
                         typeTask = typeTask(scanner);
-                        Task.addTask(new DailyTask(taskName, typeTask, taskDescription, taskDate));
+                        TaskService.addTask(new DailyTask(taskName, typeTask, taskDescription, taskDate));
                         break label;
                     case 3:
                         typeTask = typeTask(scanner);
-                        Task.addTask(new WeeklyTask(taskName, typeTask, taskDescription, taskDate));
+                        TaskService.addTask(new WeeklyTask(taskName, typeTask, taskDescription, taskDate));
                         break label;
                     case 4:
                         typeTask = typeTask(scanner);
-                        Task.addTask(new MonthlyTask(taskName, typeTask, taskDescription, taskDate));
+                        TaskService.addTask(new MonthlyTask(taskName, typeTask, taskDescription, taskDate));
                         break label;
                     case 5:
                         typeTask = typeTask(scanner);
-                        Task.addTask(new YearlyTask(taskName, typeTask, taskDescription, taskDate));
+                        TaskService.addTask(new YearlyTask(taskName, typeTask, taskDescription, taskDate));
                         break label;
                     default:
                         System.out.println("Выберите от 1 до 5");
@@ -155,7 +155,7 @@ public class Main {
     public static void delDask(Scanner scanner) throws IncorrectArgumentException {
         int inputId = checkId(scanner);
         try {
-            Task.removeTask(inputId);
+            TaskService.removeTask(inputId);
         } catch (TaskNotFoundException e) {
             System.out.println();
             System.out.println(e.getMessage());
@@ -176,7 +176,7 @@ public class Main {
             throw new IncorrectArgumentException("Некорректно введена дата");
         }
         try {
-            Task.showTasks(date);
+            TaskService.getAllByDate(date);
         } catch (TaskNotFoundException e) {
             System.out.println();
             System.out.println(e.getMessage());

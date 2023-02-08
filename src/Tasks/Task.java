@@ -1,7 +1,6 @@
 package Tasks;
 
 import Exceptions.IncorrectArgumentException;
-import Exceptions.TaskNotFoundException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,7 +8,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
-import java.util.stream.Collectors;
+
 
 public abstract class Task {
     private static int idGenerator;
@@ -21,6 +20,7 @@ public abstract class Task {
     private String description;
 
     private static Set<Task> setTask = new HashSet<>();
+    private static Map<Integer, Task> mapTask = new HashMap<>();
 
     public Task(String title, Type type, String description, String dateTime){
         idGenerator += 1;
@@ -73,41 +73,12 @@ public abstract class Task {
         return description;
     }
 
-    public static void addTask(Task task) {
-        if (Objects.nonNull(task.getDateTime()) && Objects.nonNull(task.type)) {
-            setTask.add(task);
-        }
-    }
 
-    public static boolean deleteTask(int idNum){
-      return setTask.removeIf(i-> i.getId() == idNum);
-    }
 
-    public static void removeTask(int idNum) throws TaskNotFoundException {
-            if (deleteTask(idNum)) {
-                System.out.println();
-                System.out.println("Задача с номером " + idNum + " удалена");
-                System.out.println();
-            }
-            else {
-                throw new TaskNotFoundException("Данный id не найден");
-            }
-        }
 
     public abstract boolean appearsln(LocalDate date);
 
 
-    public static void showTasks(LocalDate date) throws TaskNotFoundException {
-        Set<Task> temp;
-        System.out.println("Запланированные задачи за " + date);
-        temp = setTask.stream().filter(task -> task.appearsln(date)).collect(Collectors.toSet());
-        if (!temp.isEmpty()) {
-            temp.stream().sorted(Comparator.comparing(Task::getTime)).forEach(System.out::println);
-        }
-        else {
-            throw new TaskNotFoundException("За текущий день задач не обнаружено");
-        }
-    }
 
 
 
