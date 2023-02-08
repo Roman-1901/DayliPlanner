@@ -65,6 +65,26 @@ public class Main {
                                 System.out.println();
                             }
                             break;
+                        case 4:
+                            System.out.print("Выберите id задачи для редактирования наименования: ");
+                            try {
+                                editTitle(scanner);
+                            } catch (IncorrectArgumentException e) {
+                                System.out.println();
+                                System.out.println(e.getMessage());
+                                System.out.println();
+                            }
+                            break;
+                        case 5:
+                            System.out.print("Выберите id задачи для редактирования описания: ");
+                            try {
+                                editDescription(scanner);
+                            } catch (IncorrectArgumentException e) {
+                                System.out.println();
+                                System.out.println(e.getMessage());
+                                System.out.println();
+                            }
+                            break;
                         case 0:
                             break label;
                     }
@@ -183,5 +203,32 @@ public class Main {
     }
 
 
+    // Редактирование наименования и описания задачи
+    public static void editTitle(Scanner scanner) throws IncorrectArgumentException {
+        int inputId = checkId(scanner);
+        System.out.println("Введите новый заголовок");
+        scanner.nextLine();
+        String newTitle = scanner.nextLine();
+        try {
+            TaskService.updateTitle(inputId, newTitle);
+        } catch (TaskNotFoundException e) {
+            System.out.println();
+            System.out.println(e.getMessage());
+            System.out.println();
+        }
+    }
+    public static void editDescription(Scanner scanner) throws IncorrectArgumentException {
+        int inputId = checkId(scanner);
+        System.out.println("Введите новое описание");
+        scanner.nextLine();
+        String newTitle = scanner.nextLine();
+        try {
+            TaskService.updateDescription(inputId, newTitle);
+        } catch (TaskNotFoundException e) {
+            System.out.println();
+            System.out.println(e.getMessage());
+            System.out.println();
+        }
+    }
 }
 

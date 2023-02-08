@@ -5,6 +5,7 @@ import Exceptions.TaskNotFoundException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TaskService {
 
@@ -46,4 +47,37 @@ public class TaskService {
         }
     }
 
+    public static void updateTitle(int num, String title) throws TaskNotFoundException {
+        boolean check = false;
+        for (Task task : setTask) {
+            if (task.getId() == num) {
+                task.setTitle(title);
+                System.out.println();
+                System.out.println("Заголовок задачи с номером " + num + " изменен");
+                System.out.println();
+                check = true;
+                break;
+            }
+        }
+            if (!check) {
+                throw new TaskNotFoundException("С данным id задача отсутсвует");
+            }
+    }
+
+    public static void updateDescription(int num, String description) throws TaskNotFoundException {
+        boolean check = false;
+        for (Task task : setTask) {
+            if (task.getId() == num) {
+                task.setDescription(description);
+                System.out.println();
+                System.out.println("Описание задачи с номером " + num + " изменено");
+                System.out.println();
+                check = true;
+                break;
+            }
+        }
+        if (!check) {
+            throw new TaskNotFoundException("С данным id задача отсутсвует");
+        }
+    }
 }
