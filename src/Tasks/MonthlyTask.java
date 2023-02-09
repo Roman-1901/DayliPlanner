@@ -20,15 +20,7 @@ public class MonthlyTask extends Task{
         return (period.getYears() >= 0 && period.getMonths() >= 0 && period.getDays() == 0);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 
     @Override
     public String toString() {

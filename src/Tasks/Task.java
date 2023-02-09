@@ -19,9 +19,6 @@ public abstract class Task {
 
     private String description;
 
-    private static Set<Task> setTask = new HashSet<>();
-    private static Map<Integer, Task> mapTask = new HashMap<>();
-
     public Task(String title, Type type, String description, String dateTime){
         idGenerator += 1;
         this.title = title;

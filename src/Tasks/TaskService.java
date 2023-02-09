@@ -21,12 +21,9 @@ public class TaskService {
         }
     }
 
-    public static boolean deleteTask(int idNum) {
-        return setTask.removeIf(i -> i.getId() == idNum);
-    }
 
     public static void removeTask(int idNum) throws TaskNotFoundException {
-        if (deleteTask(idNum)) {
+        if (setTask.removeIf(i -> i.getId() == idNum)) {
             System.out.println();
             System.out.println("Задача с номером " + idNum + " удалена");
             System.out.println();
