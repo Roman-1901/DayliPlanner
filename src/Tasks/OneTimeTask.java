@@ -13,9 +13,12 @@ public class OneTimeTask extends Task {
         super(title, type, description, dateTime);
     }
 
-    public boolean appearsln(LocalDate date) {
+    public boolean appearsIn(LocalDate date) {
+
         return Objects.equals(getDateTime().toLocalDate(), date);
     }
+
+
 
     @Override
     public boolean equals(Object o) {

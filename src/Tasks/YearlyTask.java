@@ -12,7 +12,7 @@ public class YearlyTask extends Task{
         super(title, type, description, dateTime);
     }
 
-    public boolean appearsln(LocalDate date) {
+    public boolean appearsIn(LocalDate date) {
         Period period = Period.between(getDateTime().toLocalDate(), date);
         return period.getYears() >= 0 && period.getMonths() == 0 && period.getDays() == 0;
     }

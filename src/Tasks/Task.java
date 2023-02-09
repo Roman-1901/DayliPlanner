@@ -84,7 +84,7 @@ public abstract class Task {
 
 
 
-    public abstract boolean appearsln(LocalDate date);
+    public abstract boolean appearsIn(LocalDate date);
 
 
 

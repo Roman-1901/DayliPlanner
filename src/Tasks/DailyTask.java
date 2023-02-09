@@ -3,6 +3,7 @@ package Tasks;
 import Exceptions.IncorrectArgumentException;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
@@ -12,10 +13,12 @@ public class DailyTask extends Task {
         super(title, type, description, dateTime);
     }
 
-    public boolean appearsln(LocalDate date) {
+    public boolean appearsIn(LocalDate date) {
         long daysBetween = ChronoUnit.DAYS.between(getDateTime().toLocalDate(), date);
         return daysBetween >= 0;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

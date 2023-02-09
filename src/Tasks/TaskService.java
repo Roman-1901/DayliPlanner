@@ -39,7 +39,7 @@ public class TaskService {
     public static void getAllByDate(LocalDate date) throws TaskNotFoundException {
         Set<Task> temp;
         System.out.println("Запланированные задачи за " + date);
-        temp = setTask.stream().filter(task -> task.appearsln(date)).collect(Collectors.toSet());
+        temp = setTask.stream().filter(task -> task.appearsIn(date)).collect(Collectors.toSet());
         if (!temp.isEmpty()) {
             temp.stream().sorted(Comparator.comparing(Task::getTime)).forEach(System.out::println);
         } else {

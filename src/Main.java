@@ -17,7 +17,6 @@ public class Main {
         Task test3 = new MonthlyTask("Описание-3", Type.PERSONAL, "Тестовая задача - 3", "08.02.2023 14:30");
         Task test4 = new DailyTask("Описание-4", Type.WORK, "Тестовая задача - 4", "08.02.2023 15:10");
         Task test5 = new YearlyTask("Описание-5", Type.PERSONAL, "Тестовая задача - 5", "08.02.2023 08:40");
-        Task test6 = new YearlyTask("Описание-5", Type.PERSONAL, "Тестовая задача - 5", "08.02.2023 08:40");
 
 
         TaskService.addTask(test1);
@@ -25,7 +24,6 @@ public class Main {
         TaskService.addTask(test3);
         TaskService.addTask(test4);
         TaskService.addTask(test5);
-        TaskService.addTask(test6);
 //-добавлены тестовые задачи, чтобы каждый раз не вводить через консоль
 
         try (Scanner scanner = new Scanner(System.in)) {
