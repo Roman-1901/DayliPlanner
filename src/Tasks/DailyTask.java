@@ -14,8 +14,7 @@ public class DailyTask extends Task {
     }
 
     public boolean appearsIn(LocalDate date) {
-        long daysBetween = ChronoUnit.DAYS.between(getDateTime().toLocalDate(), date);
-        return daysBetween >= 0;
+        return date.equals(getDateTime().toLocalDate()) || date.isAfter(getDateTime().toLocalDate());
     }
 
 
